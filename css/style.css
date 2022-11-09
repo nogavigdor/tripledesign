@@ -1,0 +1,914 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+/*Initial settings  which also includes psuedo elements*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* declaring the color variables we will use througout our website */
+:root {
+  --font-color-white: #fff;
+  --font-color-black: rgb(0, 0, 0);
+  --background-color-black: #000;
+  --background-color-white: #fff;
+  --link-color-blue: blue;
+  --link-color-white: white;
+  --link-color-black: black;
+  --link-bg-color-blue: blue;
+  --link-bg-color-white: white;
+  --link-bg-color-black: black;
+  --link: rgb(255, 255, 255);
+  --blue-logo-color: #84a9a4;
+  --red-logo-color: #d47061;
+  --yellow-logo-color: #f6ce9d;
+  --button-bg-not-active: #fe7012;
+  --button-bg-active: #fff;
+  --button-color-not-active: #fff;
+  --button-color-active: #fe7012;
+}
+
+/* is used for accessibility reasons, in order to enable screen readers to read the elements text for the ones
+who are using screen readers, but still, this text will not bee seen on screen, so it will not affect
+users, who are not being aided with screen readers*/
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* The browser default font-size settings is usually 16px but in order to enable user control
+over the default size, we have ser this value to precentage so we'll be able to use rem in
+much more efficient and accessible friendly way*/
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  padding: 5px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 20px;
+}
+
+h1 {
+  margin-top: 40px;
+}
+
+h3 {
+  font-size: 1.2em;
+  padding: 0 10px;
+}
+
+a {
+  color: var(--link-color-black);
+}
+
+body {
+  position: relative;
+  z-index: -3;
+  max-width: 100%;
+  color: var(--font-color-white);
+  background-color: var(--background-color-black);
+  font-family: "Poppins", sans-serif;
+  line-height: 2rem;
+  overflow-x: hidden;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+section p,
+article,
+article p {
+  width: 80%;
+  padding-bottom: 30px;
+  margin: 0 auto;
+}
+
+article a {
+  color: white;
+  text-decoration-line: underline;
+}
+
+.content {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  z-index: -1;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-section {
+  padding-top: 100px;
+}
+
+.hero-section h1,
+.hero-section h2 {
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  opacity: 0.7;
+}
+
+.theme-img {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.contact-us,
+.read-more {
+  background-color: var(--button-bg-not-active);
+  color: var(--button-color-not-active);
+  font-size: 1.5rem;
+  width: 120px;
+
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  transition: all 700ms ease-in-out;
+  text-transform: uppercase;
+}
+
+.contact-us:hover,
+.read-more:hover {
+  background-color: var(--button-bg-active);
+  color: var(--button-color-active);
+  border: 2px solid black;
+}
+
+.contact-us-main {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.starts-here {
+  height: 60px;
+  width: 200px;
+  margin-top: 20px;
+  opacity: 1;
+}
+
+.section-area {
+  margin-bottom: 80px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.reviews-wrapper {
+  position: relative;
+}
+
+.reviews {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.review-box {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  /* In order to center the review box, we have to take ino account the review-box width */
+  transform: translateX(-50%);
+  width: 60%;
+  height: 200px;
+  background-color: white;
+
+  color: black;
+}
+
+.review-box-active {
+  display: block;
+  z-index: -1;
+}
+/*
+.review-name,
+.review-job-title,
+.review-company-name {
+  display: block;
+}
+
+*/
+
+.nav-dots {
+  display: flex;
+  list-style-type: none;
+}
+
+.a-nav-dot {
+  border-radius: 50%;
+  background-color: white;
+  width: 20px;
+  height: 20px;
+}
+
+.department {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  padding: 40px 20px;
+  color: var(--font-color-black);
+  background-color: var(--background-color-white);
+  z-index: -2;
+}
+
+.web-solutions-heading {
+  position: relative;
+}
+
+.graphic-heading {
+  position: relative;
+}
+
+.animation-heading {
+  position: relative;
+}
+
+.department p {
+  margin: 20px auto;
+}
+
+.our-departments {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5%;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.our-values {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.fa-circle-check {
+  padding-right: 10px;
+  font-size: 30px;
+}
+/*
+.fa-circle-check::before {
+  position: absolute;
+  top: 0;
+  left: 50px;
+  content: "";
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--background-color-white);
+  z-index: -1;
+}
+*/
+
+.department-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  color: black;
+}
+
+.contact-us-box {
+  justify-content: center;
+  background-color: var(--background-color-black);
+}
+
+.department-box h3,
+.contact-us-box h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.department-img {
+  width: 80%;
+  margin: 0 auto;
+  object-fit: cover;
+  display: block;
+}
+
+.web-solutions-department-img,
+.design-department-img,
+.animation-department-img {
+  padding-top: 100px;
+}
+
+de-department-img,
+web-solutions-department-img .department-details {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.guarantee {
+  width: 80%;
+  background-color: var(--background-color-black);
+  margin: 0 auto;
+}
+
+.guarantee-boxes-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.guarantee-sub-box {
+  position: relative;
+  margin-bottom: 20px;
+  height: 280px;
+  width: 100%;
+  color: var(--font-color-black);
+  background-color: var(--background-color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.guarantee-sub-box h2 {
+  color: black;
+}
+
+/*  We can guarantee section*/
+i.fa-puzzle-piece,
+i.fa-hand-holding-dollar,
+i.fa-handshake,
+i.fa-heart {
+  color: var(--yellow-logo-color);
+  font-size: 15rem;
+  opacity: 0.3;
+  position: absolute;
+  bottom: 10px;
+}
+/*
+.to-top {
+  opacity: 0;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 3rem;
+  color: red;
+  background: white;
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+  text-decoration: none;
+  pointer-events: none;
+  transition: all 700ms ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/*Disabled due to converstion of the top bar into a fixed one,
+so no need for a top up arrow button
+.to-top-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+*/
+
+/*************************************************************************************
+***************************************Footer*****************************************
+**************************************************************************************/
+.footer {
+  max-width: 100%;
+  color: var(--font-color-black);
+  background-color: var(--background-color-white);
+}
+
+.footer-logo {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.fa-caret-right {
+  font-size: 30px;
+}
+
+.services a,
+.company a {
+  display: block;
+  text-align: center;
+}
+
+.newsletters {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.newsletters #youremail,
+.newsletters #submitrequest {
+  height: 30px;
+  width: 300px;
+}
+
+.footer .contact-us {
+  font-weight: 700;
+  width: 130px;
+  margin-top: 20px;
+}
+
+.details {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.svg-inline--fa {
+  vertical-align: -0.2em;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.social-buttons .social-button {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  width: 4rem;
+  height: 4rem;
+  border: 0.75rem solid transparent;
+  padding: 0;
+  text-decoration: none;
+  text-align: center;
+  color: var(--font-color-black);
+  font-size: 2rem;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  margin-right: 0.25rem;
+  margin-bottom: 1rem;
+  margin: 10px;
+}
+
+.social-buttons .fa-twitter,
+.fa-facebook-f,
+.fa-linkedin,
+.fa-instagram {
+  font-size: 25px;
+}
+
+.social-buttons-wrapper {
+  position: relative;
+}
+
+.social-buttons::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 80%;
+  background-color: var(--background-color-black);
+  bottom: 0;
+  left: 10%;
+  right: 0;
+}
+
+.terms-first-row {
+  display: flex;
+  justify-content: center;
+}
+
+.terms {
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+/*************************************************************************************
+***************************************Web Solutions **********************************
+**************************************************************************************/
+
+.our-services {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.our-services-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--font-color-black);
+  background-color: var(--background-color-white);
+  width: 100%;
+  height: 100%;
+}
+
+.our-services-box:last-child {
+  background-color: var(--background-color-black);
+}
+
+.contact-us-web-solutions-services {
+  width: 100%;
+  height: 100%;
+}
+/**********************************************************************************
+*************************************About Us**************************************
+************************************************************************************/
+
+.about-us-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px;
+  z-index: -1;
+}
+.key-messages {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 12fr 1fr 18fr;
+  width: 80%;
+}
+.vision {
+  position: relative;
+  grid-area: 1/1/3/3;
+
+  z-index: 1;
+  padding: 20px 20px 40px 20px;
+  color: var(--font-color-black);
+  background-color: var(--yellow-logo-color);
+  height: 100%;
+  width: 100%;
+}
+
+.mission {
+  position: absolute;
+  grid-area: 2/2/4/4;
+
+  z-index: 1;
+  background-color: white;
+  color: black;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+}
+
+.mission::after {
+  position: absolute;
+  content: url("/img/shapes3.png");
+  top: 85%;
+  right: 50%;
+  zoom: 0.4;
+}
+
+.we-are-here-for-you-header {
+  margin-top: 400px;
+}
+
+.about-us-content {
+  width: 80%;
+  padding-top: 120px;
+}
+
+.develop-to-next-level-heading {
+  margin-top: 100px;
+}
+
+.our-team {
+  position: relative;
+  z-index: -1;
+  width: 100%;
+
+  background-color: var(--background-color-white);
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 50px;
+}
+
+.team-box-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+.team-members {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.a-team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+
+  width: 80%;
+  object-fit: cover;
+  margin: 20px auto;
+  border: 2px solid #000;
+
+  box-shadow: 10px 10px 5px #ccc;
+}
+
+.a-team-member .fa-envelope,
+.a-team-member .fa-linkedin {
+  color: black;
+}
+/* creating the triangle shape in the our-team section - by using the clip path */
+.triangle {
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20%;
+  height: 50px;
+  background-color: black;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
+
+/**********************************************************************************
+*************************************Contact Us**************************************
+************************************************************************************/
+body {
+  min-height: 100vh;
+}
+
+.you-are-welcome {
+  padding-bottom: 40px;
+  width: 60%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.you-are-welcome-detail {
+  display: block;
+  margin-top: 10px;
+}
+.main-contact-us {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 120px;
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 10px;
+}
+
+.contact-form input,
+.contact-form label {
+  height: 3rem;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.yourmessage {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.contact-form #submitrequest {
+  width: 50%;
+}
+
+#our-location {
+  max-width: 80%;
+  height: 300px;
+}
+/****************************************************************************************************
+**********************************MEDIA QUERIES *****************************************************
+*****************************************************************************************************/
+/* Ipads, Tablets */
+@media screen and (min-width: 481px) {
+  .team-members {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Laptops, Small screens */
+@media screen and (min-width: 769px) {
+  .content {
+    max-width: 80%;
+  }
+  .theme-img {
+    max-width: 100%;
+  }
+
+  .starts-here {
+    margin-top: 120px;
+  }
+
+  .values-and-departments ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .values-and-departments ul li:last-child {
+    grid-area: 3/1/3/3;
+  }
+
+  .about-us-section {
+    padding-top: 0;
+  }
+}
+
+/* Desktops, Large screens */
+@media screen and (min-width: 1025px) {
+  .values-and-departments {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 100px;
+  }
+
+  .our-values {
+    margin-top: -200px;
+  }
+
+  .values-and-departments ul {
+    display: block;
+  }
+
+  .values-and-departments ul li {
+    padding: 20px;
+  }
+
+  .our-departments {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .department {
+    flex-direction: row-reverse;
+  }
+
+  .department-img {
+    width: 70%;
+  }
+
+  .guarantee-boxes-holder {
+    flex-direction: row;
+  }
+
+  .guarantee-sub-box {
+    width: 30%;
+  }
+
+  .social-buttons .social-button:hover,
+  .rounded-social-buttons .social-button:focus {
+    transform: rotate(360deg);
+  }
+
+  .footer {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr auto;
+  }
+
+  .footer-logo {
+    grid-area: 1/1/2/2;
+  }
+  .newsletters {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: 0 auto;
+    grid-area: 1/2/1/5;
+  }
+
+  .footer .services {
+    grid-area: 2/2/2/3;
+  }
+
+  .footer .company {
+    grid-area: 2/3/2/4;
+  }
+
+  .footer .company-details {
+    grid-area: 2/4/2/5;
+  }
+
+  .social-buttons-wrapper {
+    grid-area: 3/4/3/5;
+  }
+
+  .footer .terms {
+    grid-area: 4/1/4/5;
+  }
+
+  .footer .terms::before {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 100%;
+    color: black;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .social-buttons::after {
+    display: none;
+  }
+
+  .mission::after {
+    top: 64%;
+
+    zoom: 0.6;
+  }
+
+  .about-us-content {
+    padding-top: 16 0px;
+  }
+
+  .team-members {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .main-contact-us {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Extra large screens, Tv*/
+@media screen and (min-width: 1201px) {
+}

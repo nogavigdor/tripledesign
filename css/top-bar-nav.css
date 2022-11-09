@@ -1,0 +1,294 @@
+.header {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.main-nav {
+  position: relative;
+}
+
+.top-bar-nav-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  background-color: var(--background-color-black);
+}
+
+.toggle-top-bar-nav-wrapper {
+  height: 100vh;
+}
+
+.top-bar-wrapper {
+  width: 100%;
+  height: 80px;
+  background-color: var(--background-color-black);
+}
+
+.top-bar {
+  position: relative;
+}
+
+.logo-img {
+  height: 100px;
+  position: absolute;
+  top: 5px;
+  left: 10px;
+}
+
+/*
+.fa-bars,
+.fa-xmark {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+  font-size: 35px;
+}
+*/
+/* a container for the hamburger menu  */
+.hamburger-box {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  width: 2em;
+  height: 2em;
+}
+
+.hamburger-middle-line {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  background-color: white;
+  width: 100%;
+  height: 3px;
+  transition: all 500ms ease;
+}
+
+.hamburger-middle-line::before,
+.hamburger-middle-line::after {
+  position: absolute;
+
+  content: " ";
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  z-index: 1;
+  transition: all 500ms;
+}
+
+.hamburger-middle-line::before {
+  top: -10px;
+  left: 0;
+}
+
+.hamburger-middle-line::after {
+  top: 10px;
+  left: 0;
+}
+
+/* the .close-menu is class the toggled after clicking on the .hmburger-box class and it changes the three horizontal lines
+into an X shape */
+.close-menu div.hamburger-middle-line::before {
+  transform: translateY(10px) rotate(-45deg);
+}
+
+.close-menu div.hamburger-middle-line::after {
+  transform: translateY(-10px) rotate(45deg);
+}
+
+.close-menu div.hamburger-middle-line {
+  background: transparent;
+}
+/*The initial state of the main menu is shifted to the left, out of user view  */
+
+.main-menu {
+  height: 0;
+  position: absolute;
+  /* on the pages there are some absolute elements, that is menu should be seen above them*/
+  z-index: 2;
+  top: 0px;
+  right: 0;
+
+  font-size: 2.5rem;
+  text-align: center;
+  list-style-type: none;
+
+  padding-top: 40px;
+  opacity: 0;
+  transition: all 1000ms ease;
+}
+
+/*This class is toggled by clicking the .hamburger-box div and it shifts the .main-menu div so it will take the whole
+screen and creates a semi transparent color so the website theme image is seen underneath  */
+.toggle-main-menu {
+  display: block;
+  opacity: 1;
+  background: var(--background-color-black);
+
+  height: 100vh;
+  width: 100%;
+  /*
+   linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0),
+    rgb(13, 9, 0, 1)
+  ); */
+}
+
+/*creating of a collapsed menu items, one ofter the other  */
+.menu-item {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.menu-item:first-child {
+  transition: all 700ms ease;
+}
+
+.menu-item:nth-child(2) {
+  transition: all 700ms ease 200ms;
+}
+
+.menu-item:nth-child(3) {
+  transition: all 700ms ease 400ms;
+}
+
+.menu-item:nth-child(4) {
+  transition: all 700ms ease 600ms;
+}
+
+.menu-item:nth-child(5) {
+  transition: all 700ms ease 800ms;
+}
+
+.menu-item:last-child {
+  transition: all 700ms ease 1000ms;
+  position: relative;
+}
+
+.main-menu .menu-item {
+  padding-bottom: 1.5rem;
+  opacity: 0;
+}
+
+.toggle-main-menu .menu-item {
+  opacity: 1;
+}
+
+.main-menu a {
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.main-menu::before {
+  content: url("/img/shapes5.png");
+  position: absolute;
+  bottom: 20%;
+
+  right: 5%;
+  zoom: 30%;
+  transform: translateY(300%);
+  opacity: 0;
+  transition: all 700ms 1000ms ease-in-out;
+}
+
+.toggle-main-menu::before {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+li.menu-item.active-menu-item {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+.menu-item-link {
+  position: relative;
+}
+
+.menu-item:last-child .menu-item-link {
+  background-color: var(--button-bg-not-active);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/****************************************************************************************************
+**********************************MEDIA QUERIES *****************************************************
+*****************************************************************************************************/
+/* Ipads, Tablets */
+@media screen and (min-width: 481px) {
+}
+
+/* Laptops, Small screens */
+@media screen and (min-width: 769px) {
+  .toggle-main-menu::before {
+    zoom: 50%;
+    right: 10%;
+  }
+}
+
+/* Desktops, Large screens */
+@media screen and (min-width: 1025px) {
+  .logo {
+    z-index: 3;
+  }
+  .hamburger-box {
+    display: none;
+  }
+
+  .main-menu {
+    display: flex;
+    justify-content: space-between;
+    height: inherit;
+    width: 70%;
+    top: -80px;
+    right: 5%;
+    opacity: 1;
+    padding-top: 20px;
+  }
+
+  .menu-item {
+    transform: none;
+  }
+
+  .toggle-top-bar-nav-wrapper {
+    height: inherit;
+    max-width: 100%;
+  }
+
+  .main-menu::before {
+    display: none;
+  }
+
+  .main-menu .menu-item {
+    opacity: 1;
+  }
+  /*this psuedo element creates a line under the menu item link. 
+at this state the width is 0 so it doesnt show*/
+  .menu-item-link:before {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    content: "";
+    width: 0;
+    height: 4px;
+    background-color: var(--red-logo-color);
+    transition: all 400ms ease-in-out;
+  }
+
+  /* after hovering on the menu item link a line will gradualy appear under the menu item link */
+  .menu-item-link:hover:before {
+    width: 100%;
+  }
+}
+
+/* Extra large screens, Tv*/
+@media screen and (min-width: 1201px) {
+}
